@@ -1,4 +1,4 @@
-package com.gamevault.model;
+package Model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -14,8 +14,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "genero")
-public class Genero {
+@Table(name = "plataforma")
+public class Plataforma {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

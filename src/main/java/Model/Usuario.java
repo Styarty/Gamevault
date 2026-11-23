@@ -1,5 +1,5 @@
 
-package com.gamevault.model;
+package Model;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;

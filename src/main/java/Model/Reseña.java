@@ -1,12 +1,14 @@
-package com.gamevault.model;
+package Model;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.MapsId;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -15,30 +17,31 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "resena")
+@Table(name = "resena", uniqueConstraints = {
+        @UniqueConstraint(columnNames = {"usuario_id", "videojuego_id"})
+})
 public class Reseña {
 
-    @EmbeddedId
-    private ResenaId id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @ManyToOne
-    @MapsId("usuarioId")
     @JoinColumn(name = "usuario_id", nullable = false)
     private Usuario usuario;
 
     @ManyToOne
-    @MapsId("videojuegoId")
     @JoinColumn(name = "videojuego_id", nullable = false)
     private Videojuego videojuego;
 
     @Column(nullable = false)
     private Integer puntuacion;
 
-    public ResenaId getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(ResenaId id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
