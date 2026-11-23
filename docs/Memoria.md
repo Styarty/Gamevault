@@ -58,7 +58,7 @@ Esta tabla corresponde al apartado 2.1 de la memoria, aunque por ahora podemos d
 
 ### 3.1. Primer boceto de la base de datos
 
-Podemos partir de las seis entidades que ya has creado.
+Podemos partir de las seis entidades principales que ya has creado y añadir dos tablas intermedias para representar las relaciones de muchos a muchos.
 
 | Tabla | Campos principales |
 |---|---|
@@ -77,3 +77,12 @@ Podemos partir de las seis entidades que ya has creado.
 - Un videojuego puede recibir varias reseñas.
 - Un videojuego puede pertenecer a varios géneros.
 - Un videojuego puede estar disponible en varias plataformas.
+
+**Claves primarias y claves externas:**
+
+- `usuarios.id` será la clave primaria de `usuarios`.
+- `videojuegos.id` será la clave primaria de `videojuegos`.
+- `generos.id` será la clave primaria de `generos`.
+- `plataformas.id` será la clave primaria de `plataformas`.
+- `biblioteca.id` será la clave primaria de `biblioteca`; `biblioteca.usuario_id` y `biblioteca.videojuego_id` serán claves externas.
+- `resenas.id` será la clave primaria de `resenas`; `resenas.usuario_id` y `resenas.videojuego_id` serán claves externas.
